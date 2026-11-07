@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'container.dart';
 import 'image.dart';
@@ -10,8 +11,8 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Home"),
-        backgroundColor: const Color.fromARGB(255, 162, 76, 118),
+        title: const Text("Homepage 64B"),
+        backgroundColor: const Color.fromARGB(255, 225, 87, 23),
         foregroundColor: Colors.white,
         actions: [
           IconButton(
@@ -30,78 +31,55 @@ class HomePage extends StatelessWidget {
           padding: EdgeInsets.zero,
           children: [
             const UserAccountsDrawerHeader(
-              accountName: Text("Rawdatul Jannat"),
-              accountEmail: Text("rawda.afrin@email.com"),
-              decoration: BoxDecoration(
-                color: Color.fromARGB(255, 207, 111, 146),
-              ),
+              accountName: Text("Rawda"),
+              accountEmail: Text("rawda.afrin@gmail.com"),
             ),
 
             ListTile(
+              title: const Text("Homepage"),
               leading: const Icon(Icons.home),
-              title: const Text("Home"),
-              onTap: () => Navigator.pop(context),
+              hoverColor: Colors.lime,
+              onTap: () {
+                Navigator.pop(context);
+              },
             ),
-            ListTile(
-  leading: const Icon(Icons.currency_exchange),
-  title: const Text("Currency Converter"),
-  onTap: () {
-    Navigator.pop(context);
 
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const ConverterPage(),
-      ),
-    );
-  },
-),
+            const Divider(),
+
+            ListTile(
+              title: const Text("Currency Converter"),
+              leading: const Icon(Icons.currency_exchange),
+              hoverColor: Colors.lime,
+              onTap: () {
+                Navigator.pop(context);
+
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ConverterPage(),
+                  ),
+                );
+              },
+            ),
+
+            const Divider(),
+
+            ListTile(
+              title: const Text("Settings"),
+              leading: const Icon(Icons.settings),
+              hoverColor: Colors.lime,
+              onTap: () {},
+            ),
 
             const Divider(),
 
             ListTile(
               leading: const Icon(Icons.person),
               title: const Text("Profile"),
-              onTap: () {},
-            ),
-
-            const Divider(),
-
-            ListTile(
-              leading: const Icon(Icons.settings),
-              title: const Text("Settings"),
-              onTap: () {},
-            ),
-
-            const Divider(),
-
-            ListTile(
-              leading: const Icon(Icons.notifications),
-              title: const Text("Notifications"),
-              onTap: () {},
-            ),
-
-            const Divider(),
-
-            ListTile(
-              leading: const Icon(Icons.info),
-              title: const Text("About"),
-              onTap: () {},
-            ),
-
-            const Divider(),
-
-            ListTile(
-              leading: const Icon(Icons.help),
-              title: const Text("Help & Support"),
-              onTap: () {},
-            ),
-
-            const Divider(),
-
-            ListTile(
-              leading: const Icon(Icons.logout),
-              title: const Text("Logout"),
+              trailing: IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.logout),
+              ),
               onTap: () {},
             ),
           ],
@@ -117,8 +95,9 @@ class HomePage extends StatelessWidget {
             ),
           );
         },
-        backgroundColor: const Color.fromARGB(255, 162, 76, 118),
+        backgroundColor: const Color.fromARGB(255, 164, 103, 124),
         foregroundColor: Colors.white,
+        hoverColor: Colors.amber,
         tooltip: "Open Container Page",
         shape: const CircleBorder(),
         child: const Icon(Icons.add),
@@ -138,18 +117,18 @@ class HomePage extends StatelessWidget {
             },
             style: TextButton.styleFrom(
               side: const BorderSide(),
-              backgroundColor: const Color.fromARGB(255, 235, 148, 220),
+              backgroundColor: Colors.blue,
               foregroundColor: Colors.white,
-              shadowColor: const Color.fromARGB(255, 133, 169, 218),
+              shadowColor: Colors.amber,
               elevation: 10,
-              fixedSize: const Size(200, 50),
+              fixedSize: const Size(100, 50),
             ),
-            child: const Text("Container page"),
+            child: const Text("Blue"),
           ),
 
           ElevatedButton(
             onPressed: () {
-              Navigator.pushReplacement(
+              Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder: (context) => const ImagePage(),
@@ -157,31 +136,29 @@ class HomePage extends StatelessWidget {
               );
             },
             style: ElevatedButton.styleFrom(
-              side: const BorderSide(),
-              backgroundColor: const Color.fromARGB(255, 220, 112, 230),
+              backgroundColor: Colors.green,
               foregroundColor: Colors.white,
-              shadowColor: const Color.fromARGB(255, 123, 219, 174),
-              elevation: 10,
-              fixedSize: const Size(200, 50),
             ),
-            child: const Text("Image Page"),
+            child: const Text("Green"),
           ),
 
           OutlinedButton(
             onPressed: () {
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(
-                  content: Text("Pink Button Clicked !!"),
+                  content: Text("Yellow Button Clicked !!"),
                 ),
               );
             },
             style: OutlinedButton.styleFrom(
-              side: const BorderSide(),
-              backgroundColor: const Color.fromARGB(255, 235, 148, 220),
-              foregroundColor: Colors.white,
-              fixedSize: const Size(200, 50),
+              side: const BorderSide(
+                color: Colors.purple,
+                width: 2,
+              ),
+              foregroundColor: Colors.purple,
+              backgroundColor: Colors.amber,
             ),
-            child: const Text("Pink"),
+            child: const Text("Yellow"),
           ),
         ],
       ),
